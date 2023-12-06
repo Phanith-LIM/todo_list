@@ -2,7 +2,7 @@
   <div id="app">
     <todo-app></todo-app>
   </div>
-  <footer class="fixed bottom-0 w-full p-4 text-center">
+  <footer class="w-full p-4 text-center">
     <div class="flex flex-col">
       <a href="https://phanithlim.netlify.app/">
         Created by <strong>Phanith LIM</strong>

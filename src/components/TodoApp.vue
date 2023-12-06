@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-[70%} h-screen mx-auto">
+  <div class="container max-w-[70%} h-screen mx-auto p-3 md:block">
     <div class="w-full flex flex-col items-center space-y-3 pt-6">
       <h1 class="text-3xl font-bold">Todo List</h1>
       <form class="max-w-lg w-full" @submit.prevent="onTap">
