@@ -20,7 +20,7 @@
           </tr>
           </thead>
           <tbody>
-            <tr v-for="(task, index) in sortedTasks" :key="index">
+            <tr v-for="(task, index) in tasks" :key="index">
               <th>{{ index + 1 }}</th>
               <td :class="{
                   'line-through': task.status == status.finished
@@ -52,7 +52,7 @@
 </template>
 
 <script setup lang="ts">
-import {ref, computed, onMounted} from 'vue'
+import {ref, onMounted} from 'vue'
 
 onMounted(() => {
   const storedTasks = localStorage.getItem('tasks');
@@ -114,17 +114,6 @@ function onUpdate(index: number): void {
 function onDelete(index: number): void {
   tasks.value.splice(index, 1);
 }
-
-const sortedTasks = computed(() => {
-  const clonedTasks = [...tasks.value];
-
-  // Sorting logic: Sort by id in ascending order
-  clonedTasks.sort((a, b) => {
-    return a.id - b.id;
-  });
-
-  return clonedTasks;
-});
 
 function saveTasks() {
   const tasksToSave = tasks.value.filter(task => task.status !== status.finished);
