@@ -80,7 +80,6 @@ function onTap(): void {
   if (taskInput.value === "") return;
   if(!isEdit.value) {
     tasks.value.push({
-      id: tasks.value.length + 1,
       name: taskInput.value,
       status: status.todo
     });
