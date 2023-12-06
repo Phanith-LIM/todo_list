@@ -1,5 +1,5 @@
 <template>
-  <div class="container max-w-[70%} h-screen mx-auto p-3 md:block">
+  <div class="container max-w-lg w-full h-screen mx-auto p-3 md:block">
     <div class="w-full flex flex-col items-center space-y-3 pt-6">
       <h1 class="text-3xl font-bold">Todo List</h1>
       <form class="max-w-lg w-full" @submit.prevent="onTap">
@@ -21,10 +21,14 @@
           </thead>
           <tbody>
             <tr v-for="(task, index) in sortedTasks" :key="index">
-              <th>{{ task.id }}</th>
+              <th>{{ index + 1 }}</th>
               <td :class="{
-                'line-through': task.status == status.finished
-              }">{{ task.name }}</td>
+                  'line-through': task.status == status.finished
+                }">
+                <p class="truncate w-20 md:w-52">
+                  {{ task.name }}
+                </p>
+              </td>
               <td class="w-1/3"><button @click="onChangeStatus(index)" :class="{
                 'text-yellow-500': task.status == status.progress,
                 'text-green-500': task.status == status.finished,
@@ -67,7 +71,6 @@ const editIndex = ref<number | null>();
 const taskInput = ref<string>("");
 
 interface TaskModel {
-  id: number;
   name: string;
   status: status;
 }
